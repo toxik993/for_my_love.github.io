@@ -1,0 +1,119 @@
+body {
+  height: 50%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000000;
+  overflow: hidden;
+  font-size: 100%
+}
+
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.spiral{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  color: #fff;
+  font-family: "sans-serif";
+}
+
+@keyframes spiral{
+  0%{
+    --angle: 0deg;
+  }
+  100%{
+    --angle: 360deg;
+  }
+}
+
+.character{
+  font-size: 2.8rem;
+  color: white;
+  text-transform: uppercase;
+
+  transform: translateY(calc(sin(var(--angle)) * 100px))
+  scale(calc(cos(var(--angle)) * 0.5 + 0.5));
+
+  animation: spiral 4s linear infinite;
+}
+
+@media (max-width: 490px){
+  .character{
+    font-size: 2.2rem
+  }
+}
+
+
+footer {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding-top: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+footer .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  position: relative;
+  z-index: 1;
+}
+
+
+footer .btn-3d {
+  padding: 30px 45px;
+  background-color: #9818b8;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 26px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px #670e79;
+  transition: all 0.2s ease;
+}
+
+footer .btn-3d:active {
+  transform: translateY(8px);
+  box-shadow: 0 0 #670e79;
+}
+
+
+.video-background {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1000;
+  overflow: hidden;
+}
+
+#myVideo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1000;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+
+
